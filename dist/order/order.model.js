@@ -28,7 +28,7 @@ __decorate([
 ], Order.prototype, "email", void 0);
 __decorate([
     mongoose_1.Prop({ required: true }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Order.prototype, "address", void 0);
 __decorate([
     mongoose_1.Prop({ required: true }),

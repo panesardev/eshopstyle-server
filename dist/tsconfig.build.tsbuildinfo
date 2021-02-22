@@ -1632,8 +1632,8 @@
         "affectsGlobalScope": false
       },
       "../src/order/order.model.ts": {
-        "version": "0ffb38e734c75f8ea224963cb8152ca5a6ad2f19a6815c195a7f4eff85c7d5c9",
-        "signature": "9d734ccc17892c7eecb981cf840fb98997d41c058347f0487082572426e56350",
+        "version": "4ab8ae9a177fb69e3602071c000c939ce2332758cad0653026621307586ccf8b",
+        "signature": "1fdd55439c86e314e327f821363b3879c037f50973f715a944a9a0529a6c20d4",
         "affectsGlobalScope": false
       },
       "../src/order/order.service.ts": {

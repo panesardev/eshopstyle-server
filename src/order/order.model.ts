@@ -16,7 +16,7 @@ export class Order {
 	email: string;
 	
 	@Prop({ required: true })
-	address: number;
+	address: string;
 	
 	@Prop({ required: true })
 	totalPrice: number;
