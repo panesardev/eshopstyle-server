@@ -13,6 +13,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const config_1 = require("@nestjs/config");
 const collection_controller_1 = require("./collection/collection.controller");
 const collection_module_1 = require("./collection/collection.module");
+const order_module_1 = require("./order/order.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -30,6 +31,7 @@ AppModule = __decorate([
             }),
             product_module_1.ProductModule,
             collection_module_1.CollectionModule,
+            order_module_1.OrderModule,
         ],
         controllers: [collection_controller_1.CollectionController],
     })

@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CollectionController } from './collection/collection.controller';
 import { CollectionModule } from './collection/collection.module';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { CollectionModule } from './collection/collection.module';
     }),
     ProductModule,
     CollectionModule,
+    OrderModule,
   ],
   controllers: [CollectionController],
 })
