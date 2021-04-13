@@ -4,6 +4,7 @@ import { Document } from 'mongoose';
 export type ProductDoc = Product & Document;
 
 export interface Review {
+	id?: string,
 	name: string;
 	timeStamp: string;
 	content: string;

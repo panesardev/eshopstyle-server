@@ -21,6 +21,8 @@ let OrderController = class OrderController {
         this.orderService = orderService;
     }
     async saveOrder(order) {
+        if (order.id)
+            throw new common_1.HttpException('Order Already Placed', 400);
         return await this.orderService.save(order);
     }
     async getOrders() {
@@ -34,6 +36,9 @@ let OrderController = class OrderController {
     }
     async updateOrder(order) {
         return await this.orderService.update(order);
+    }
+    async getOrderByEmail(email) {
+        return await this.orderService.findByEmail(email);
     }
 };
 __decorate([
@@ -50,14 +55,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "getOrders", null);
 __decorate([
-    common_1.Get(':id'),
+    common_1.Get('/:id'),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "getOrder", null);
 __decorate([
-    common_1.Delete(':id'),
+    common_1.Delete('/:id'),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -70,6 +75,13 @@ __decorate([
     __metadata("design:paramtypes", [order_model_1.Order]),
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "updateOrder", null);
+__decorate([
+    common_1.Get('/email/:email'),
+    __param(0, common_1.Param('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], OrderController.prototype, "getOrderByEmail", null);
 OrderController = __decorate([
     common_1.Controller('order'),
     __metadata("design:paramtypes", [order_service_1.OrderService])

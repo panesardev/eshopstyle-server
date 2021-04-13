@@ -1,6 +1,7 @@
 import { Document } from 'mongoose';
 export declare type ProductDoc = Product & Document;
 export interface Review {
+    id?: string;
     name: string;
     timeStamp: string;
     content: string;

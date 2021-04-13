@@ -23,13 +23,13 @@ let OrderService = class OrderService {
         this.OrderDoc = OrderDoc;
     }
     async update(order) {
-        return this.OrderDoc.find({ id: order.id }, Object.assign({}, order)).exec();
+        return this.OrderDoc.updateOne({ id: order.id }, Object.assign({}, order)).exec();
     }
     async delete(id) {
         return this.OrderDoc.deleteOne({ id }).exec();
     }
     async find(id) {
-        return this.OrderDoc.find({ id }).exec();
+        return this.OrderDoc.find({ id }).exec()[0];
     }
     async findAll() {
         return this.OrderDoc.find().exec();
@@ -37,6 +37,9 @@ let OrderService = class OrderService {
     async save(order) {
         order.id = uuid_1.v4();
         return new this.OrderDoc(order).save();
+    }
+    async findByEmail(email) {
+        return this.OrderDoc.find({ email }).exec();
     }
 };
 OrderService = __decorate([

@@ -9,24 +9,28 @@ export class OrderService {
 
 	constructor(@InjectModel(Order.name) private OrderDoc: Model<OrderDoc>) { }
 
-	async update(order: Order) {
-		return this.OrderDoc.find({ id: order.id }, { ...order }).exec();
+	async update(order: Order): Promise<Order> {
+		return this.OrderDoc.updateOne({ id: order.id }, { ...order }).exec();
 	}
 	
-	async delete(id: string) {
+	async delete(id: string): Promise<any> {
 		return this.OrderDoc.deleteOne({ id }).exec();
 	}
 	
-	async find(id: string) {
-		return this.OrderDoc.find({ id }).exec();
+	async find(id: string): Promise<Order> {
+		return this.OrderDoc.find({ id }).exec()[0];
 	}
 	
-	async findAll() {
+	async findAll(): Promise<Order[]> {
 		return this.OrderDoc.find().exec();
 	}
 	
-	async save(order: Order) {
+	async save(order: Order): Promise<Order> {
 		order.id = uuid();
 		return new this.OrderDoc(order).save();
+	}
+
+	async findByEmail(email: string): Promise<Order[]> {
+		return this.OrderDoc.find({ email }).exec();
 	}
 }
